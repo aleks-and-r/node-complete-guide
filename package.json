@@ -1,0 +1,20 @@
+{
+  "name": "learning-by-max",
+  "version": "1.0.0",
+  "description": "Learning nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleks-and-r/node-complete-guide.git"
+  },
+  "author": "Aleksandar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleks-and-r/node-complete-guide/issues"
+  },
+  "homepage": "https://github.com/aleks-and-r/node-complete-guide#readme"
+}
