@@ -1,4 +1,4 @@
-const http = require("http");
+// const http = require("http");
 const express = require("express");
 
 // it automatically sets up certain way of handling incoming requests that is a key characteristic of express.js
