@@ -1,15 +1,16 @@
 // const http = require("http");
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+const path = require("path");
 
-const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 
 // it automatically sets up certain way of handling incoming requests that is a key characteristic of express.js
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
 // use allows us to add new middleware
 // app.use('/add-product', (req, res, next) => {
 //     console.log('This always run');
@@ -30,15 +31,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 //     res.send('<h1>Welcome to express node</h1>')
 // });
 
-app.use(adminRoutes)
-app.use(shopRoutes)
+app.use("/admin", adminRoutes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).send('<h1>Page not found</h1>')
-})
+  res.sendFile(path.join(__dirname, "views", "404.html"));
+  //   res.status(404).send("<h1>Page not found</h1>");
+});
 
 // const server = http.createServer(app);
 // server.listen(3000);
 // this line replaces http create server
 app.listen(3000);
-
